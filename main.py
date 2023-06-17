@@ -20,7 +20,7 @@ def main():
             break
         else:
             print('Треба вказати ціле число більше 0')
-    for i in range(number_of_attempts):
+    while number_of_attempts > 0:
         attempt = input('Вкажи букву чи слово: ').lower()
         if len(attempt) == 1:
             letter_count = chosen_word.count(attempt)
@@ -33,12 +33,14 @@ def main():
                     return
             else:
                 print('Не вгадав!')
+                number_of_attempts -= 1
         else:
             if chosen_word == attempt:
                 print('Ви відгадали слово!')
                 return
             else:
                 print('Не вгадав!')
+                number_of_attempts -= 1
         print(encrypted_word)
     print('Кількість спроб закінчилися!')
 
